@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2019 a las 18:08:11
+-- Tiempo de generación: 25-06-2019 a las 19:19:15
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -35,6 +35,21 @@ CREATE TABLE `ambiente` (
   `Estado` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `ambiente`
+--
+
+INSERT INTO `ambiente` (`IdAmb`, `TipoAmb`, `DescripcionAmb`, `Estado`) VALUES
+(1, 'Aula', '5', NULL),
+(2, 'Aula', '6', NULL),
+(3, 'Aula', '7', NULL),
+(4, 'Aula', '8', NULL),
+(5, 'Lab', '1', NULL),
+(6, 'Lab', '2', NULL),
+(7, 'Lab', '3', NULL),
+(8, 'Lab', '4', NULL),
+(9, 'Lab', '5', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +62,22 @@ CREATE TABLE `ciclo` (
   `Estado` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `ciclo`
+--
+
+INSERT INTO `ciclo` (`IdCiclo`, `DescripcionCiclo`, `Estado`) VALUES
+(1, 'PRIMERO', NULL),
+(2, 'SEGUNDO', NULL),
+(3, 'TERCERO', NULL),
+(4, 'CUARTO', NULL),
+(5, 'QUINTO', NULL),
+(6, 'SEXTO', NULL),
+(7, 'SEPTIMO', NULL),
+(8, 'OCTAVO', NULL),
+(9, 'NOVENO', NULL),
+(10, 'DECIMO', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -58,7 +89,8 @@ CREATE TABLE `curgrup` (
   `Estado` int(2) DEFAULT NULL,
   `IdCurso` int(11) NOT NULL,
   `IdGrupo` int(11) NOT NULL,
-  `IdDoc` int(11) NOT NULL
+  `IdDoc` int(11) NOT NULL,
+  `IdSem` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -72,9 +104,29 @@ CREATE TABLE `curso` (
   `CodigoCurso` char(5) NOT NULL,
   `DescripcionCurso` varchar(50) NOT NULL,
   `CreditoCurso` int(11) NOT NULL,
+  `HoraP` char(11) NOT NULL,
+  `HoraT` char(11) NOT NULL,
+  `TipoCur` varchar(2) NOT NULL,
   `Estado` int(2) DEFAULT NULL,
   `IdCiclo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `curso`
+--
+
+INSERT INTO `curso` (`IdCurso`, `CodigoCurso`, `DescripcionCurso`, `CreditoCurso`, `HoraP`, `HoraT`, `TipoCur`, `Estado`, `IdCiclo`) VALUES
+(1, 'CL101', 'INFORMATICA BASICA', 4, '32', '48', 'E', NULL, 1),
+(2, 'IA105', 'GEOMETRIA DESCRPTIVA', 4, '32', '48', 'G', NULL, 1),
+(3, 'MM107', 'MATEMATICA BASICA', 4, '64', '32', 'G', NULL, 1),
+(4, 'HU133', 'METODOLOGIA DEL ESTUDIO Y COMUNICACION', 3, '32', '32', 'G', NULL, 1),
+(5, 'CL121', 'TECNICAS DE PROGRAMACION', 4, '32', '48', 'E', NULL, 1),
+(8, 'CL164', 'ALGORITMO Y ESTRUCTURA DE DATOS I', 4, '32', '48', 'E', NULL, 2),
+(9, 'MM185', 'CALCULO I', 4, '64', '32', 'G', NULL, 2),
+(10, 'MM180', 'LOGICA MATEMATICA', 4, '32', '48', 'E', NULL, 2),
+(11, 'CL169', 'DISEÑO ASISTIDO POR COMPUTADORA', 4, '32', '48', 'E', NULL, 2),
+(12, 'CL186', 'DISEÑO GRAFICO', 3, '32', '32', 'ES', NULL, 2),
+(13, 'CL187', 'TOPICOS DE INTERNET', 3, '32', '32', 'ES', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -88,6 +140,16 @@ CREATE TABLE `cursorequisito` (
   `IdCurso` int(11) NOT NULL,
   `IdReq` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cursorequisito`
+--
+
+INSERT INTO `cursorequisito` (`IdCurReq`, `Estado`, `IdCurso`, `IdReq`) VALUES
+(1, NULL, 8, 1),
+(2, NULL, 9, 2),
+(3, NULL, 10, 2),
+(4, NULL, 11, 3);
 
 -- --------------------------------------------------------
 
@@ -113,7 +175,9 @@ INSERT INTO `docente` (`IdDoc`, `DNIDoc`, `NombreDoc`, `ApPaternoDoc`, `ApMatern
 (1, '77665335', 'Lucia', 'Fernandez', 'Perez', NULL, NULL),
 (2, '81999981', 'Pedro', 'Juarez', 'Rodriguez', '999765432', NULL),
 (3, '71909015', 'Juan', 'Lopez', 'Lopez', NULL, NULL),
-(4, '17627257', 'Jessie', 'Castillo', 'Rojas', NULL, NULL);
+(4, '17627257', 'Jessie', 'Castillo', 'Rojas', NULL, NULL),
+(5, '17627256', 'Doris', 'Vasquez', 'Ramos', NULL, NULL),
+(6, '15151615', 'Matias', 'Santisteban', 'Facundo', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -127,6 +191,14 @@ CREATE TABLE `grupo` (
   `Estado` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `grupo`
+--
+
+INSERT INTO `grupo` (`IdGrupo`, `DescripcionGrupo`, `Estado`) VALUES
+(1, 'A', NULL),
+(2, 'B', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -139,6 +211,27 @@ CREATE TABLE `hora` (
   `HoraFin` char(20) NOT NULL,
   `Estado` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `hora`
+--
+
+INSERT INTO `hora` (`IdHora`, `HoraInicio`, `HoraFin`, `Estado`) VALUES
+(1, '07:30', '08:20', NULL),
+(2, '08:20', '09:10', NULL),
+(3, '09:10', '10:00', NULL),
+(4, '10:00', '10:50', NULL),
+(5, '10:50', '11:40', NULL),
+(6, '11:40', '12:30', NULL),
+(7, '12:30', '13:20', NULL),
+(8, '13:20', '14:10', NULL),
+(9, '14:10', '15:00', NULL),
+(10, '15:00', '15:50', NULL),
+(11, '15:50', '16:40', NULL),
+(12, '16:40', '17:30', NULL),
+(13, '17:30', '18:20', NULL),
+(14, '18:20', '19:10', NULL),
+(15, '19:10', '20:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -176,10 +269,19 @@ CREATE TABLE `horariodispo` (
 
 CREATE TABLE `requisito` (
   `IdReq` int(11) NOT NULL,
-  `CodigoReq` mediumint(5) NOT NULL,
+  `CodigoReq` char(5) NOT NULL,
   `DescripcionReq` varchar(50) NOT NULL,
   `Estado` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `requisito`
+--
+
+INSERT INTO `requisito` (`IdReq`, `CodigoReq`, `DescripcionReq`, `Estado`) VALUES
+(1, 'CL121', 'TECNICAS DE PROGRAMACION', NULL),
+(2, 'MM107', 'MATEMATICA BASICA', NULL),
+(3, 'IA105', 'GEOMETRIA DESCRIPTIVA', NULL);
 
 -- --------------------------------------------------------
 
@@ -189,10 +291,16 @@ CREATE TABLE `requisito` (
 
 CREATE TABLE `semestre` (
   `IdSem` int(11) NOT NULL,
-  `DescripcionSem` int(11) NOT NULL,
-  `Estado` int(2) DEFAULT NULL,
-  `IdCurGrup` int(11) NOT NULL
+  `DescripcionSem` varchar(11) NOT NULL,
+  `Estado` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `semestre`
+--
+
+INSERT INTO `semestre` (`IdSem`, `DescripcionSem`, `Estado`) VALUES
+(2, '2019-I', NULL);
 
 -- --------------------------------------------------------
 
@@ -214,7 +322,9 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`IdUsuario`, `Usuario`, `Contrasenia`, `TipoUsuario`, `Estado`) VALUES
 (1, '73977192', '12345', 'Admin', NULL),
-(2, '77665335', '12345', 'Doc', NULL);
+(2, '77665335', '12345', 'Doc', NULL),
+(3, '819999981', '12345', 'Doc', NULL),
+(4, '71909015', '12345', 'Doc', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -239,7 +349,8 @@ ALTER TABLE `curgrup`
   ADD PRIMARY KEY (`IdCurGrup`),
   ADD KEY `IdCurso` (`IdCurso`),
   ADD KEY `IdDoc` (`IdDoc`),
-  ADD KEY `IdGrupo` (`IdGrupo`);
+  ADD KEY `IdGrupo` (`IdGrupo`),
+  ADD KEY `IdSem` (`IdSem`);
 
 --
 -- Indices de la tabla `curso`
@@ -299,8 +410,7 @@ ALTER TABLE `requisito`
 -- Indices de la tabla `semestre`
 --
 ALTER TABLE `semestre`
-  ADD PRIMARY KEY (`IdSem`),
-  ADD KEY `IdCurGrup` (`IdCurGrup`);
+  ADD PRIMARY KEY (`IdSem`);
 
 --
 -- Indices de la tabla `usuario`
@@ -316,13 +426,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `ambiente`
 --
 ALTER TABLE `ambiente`
-  MODIFY `IdAmb` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdAmb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `ciclo`
 --
 ALTER TABLE `ciclo`
-  MODIFY `IdCiclo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdCiclo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `curgrup`
@@ -334,31 +444,31 @@ ALTER TABLE `curgrup`
 -- AUTO_INCREMENT de la tabla `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `IdCurso` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdCurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `cursorequisito`
 --
 ALTER TABLE `cursorequisito`
-  MODIFY `IdCurReq` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdCurReq` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-  MODIFY `IdDoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `IdDoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `grupo`
 --
 ALTER TABLE `grupo`
-  MODIFY `IdGrupo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdGrupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `hora`
 --
 ALTER TABLE `hora`
-  MODIFY `IdHora` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdHora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `horario`
@@ -376,19 +486,19 @@ ALTER TABLE `horariodispo`
 -- AUTO_INCREMENT de la tabla `requisito`
 --
 ALTER TABLE `requisito`
-  MODIFY `IdReq` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdReq` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `semestre`
 --
 ALTER TABLE `semestre`
-  MODIFY `IdSem` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdSem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -403,7 +513,8 @@ ALTER TABLE `curgrup`
   ADD CONSTRAINT `curgrup_ibfk_3` FOREIGN KEY (`IdCurso`) REFERENCES `curso` (`IdCurso`),
   ADD CONSTRAINT `curgrup_ibfk_4` FOREIGN KEY (`IdCurso`) REFERENCES `curso` (`IdCurso`),
   ADD CONSTRAINT `curgrup_ibfk_5` FOREIGN KEY (`IdDoc`) REFERENCES `docente` (`IdDoc`),
-  ADD CONSTRAINT `curgrup_ibfk_6` FOREIGN KEY (`IdGrupo`) REFERENCES `grupo` (`IdGrupo`);
+  ADD CONSTRAINT `curgrup_ibfk_6` FOREIGN KEY (`IdGrupo`) REFERENCES `grupo` (`IdGrupo`),
+  ADD CONSTRAINT `curgrup_ibfk_7` FOREIGN KEY (`IdSem`) REFERENCES `semestre` (`IdSem`);
 
 --
 -- Filtros para la tabla `curso`
@@ -430,12 +541,6 @@ ALTER TABLE `horario`
 --
 ALTER TABLE `horariodispo`
   ADD CONSTRAINT `horariodispo_ibfk_1` FOREIGN KEY (`IdHora`) REFERENCES `hora` (`IdHora`);
-
---
--- Filtros para la tabla `semestre`
---
-ALTER TABLE `semestre`
-  ADD CONSTRAINT `semestre_ibfk_1` FOREIGN KEY (`IdCurGrup`) REFERENCES `curgrup` (`IdCurGrup`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
