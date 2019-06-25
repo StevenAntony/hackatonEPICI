@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/css/vendor.bundle.addons.css">
 
   <link rel="stylesheet" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/css/style.css">
+  <link rel="shortcut icon" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/images/auth/epici.jpg" />
 </head>
 
 <body>
@@ -215,7 +216,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
+            <a class="nav-link" href="../index.php">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Inicio</span>
             </a>
@@ -236,6 +237,18 @@
             <a class="nav-link" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Public/CursoGrupo/asignarCurso.php">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Asignar Curso</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Public/Reporte/Cursos_Ciclos.php">
+              <i class="menu-icon mdi mdi-television"></i>
+              <span class="menu-title">Listar Cursos por Ciclo</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Public/Reporte/Grupos_Curso.php">
+              <i class="menu-icon mdi mdi-television"></i>
+              <span class="menu-title">Listar Cursos</span>
             </a>
           </li>
           <!-- <li class="nav-item">
