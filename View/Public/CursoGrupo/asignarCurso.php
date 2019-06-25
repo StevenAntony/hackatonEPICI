@@ -66,6 +66,15 @@ include_once('../Layout/master.php');
       <div class="col-md-1">
         <button type="button" class="btn btn-success" style="margin-top: 24px;"><i class="fa fa-plus text-white"></i></button>
       </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <div class="form-check form-check-flat">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" checked=""> Checked
+              <i class="input-helper"></i></label>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
