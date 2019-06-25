@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2019 a las 19:43:16
+-- Tiempo de generación: 25-06-2019 a las 22:20:49
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -116,17 +116,17 @@ CREATE TABLE `curso` (
 --
 
 INSERT INTO `curso` (`IdCurso`, `CodigoCurso`, `DescripcionCurso`, `CreditoCurso`, `HoraP`, `HoraT`, `TipoCur`, `Estado`, `IdCiclo`) VALUES
-(1, 'CL101', 'INFORMATICA BASICA', 4, '32', '48', 'E', NULL, 1),
-(2, 'IA105', 'GEOMETRIA DESCRPTIVA', 4, '32', '48', 'G', NULL, 1),
-(3, 'MM107', 'MATEMATICA BASICA', 4, '64', '32', 'G', NULL, 1),
-(4, 'HU133', 'METODOLOGIA DEL ESTUDIO Y COMUNICACION', 3, '32', '32', 'G', NULL, 1),
-(5, 'CL121', 'TECNICAS DE PROGRAMACION', 4, '32', '48', 'E', NULL, 1),
-(8, 'CL164', 'ALGORITMO Y ESTRUCTURA DE DATOS I', 4, '32', '48', 'E', NULL, 2),
-(9, 'MM185', 'CALCULO I', 4, '64', '32', 'G', NULL, 2),
-(10, 'MM180', 'LOGICA MATEMATICA', 4, '32', '48', 'E', NULL, 2),
-(11, 'CL169', 'DISEÑO ASISTIDO POR COMPUTADORA', 4, '32', '48', 'E', NULL, 2),
-(12, 'CL186', 'DISEÑO GRAFICO', 3, '32', '32', 'ES', NULL, 2),
-(13, 'CL187', 'TOPICOS DE INTERNET', 3, '32', '32', 'ES', NULL, 2);
+(1, 'CL101', 'INFORMATICA BASICA', 4, '3', '2', 'E', NULL, 1),
+(2, 'IA105', 'GEOMETRIA DESCRPTIVA', 4, '2', '3', 'G', NULL, 1),
+(3, 'MM107', 'MATEMATICA BASICA', 4, '3', '3', 'G', NULL, 1),
+(4, 'HU133', 'METODOLOGIA DEL ESTUDIO Y COMUNICACION', 3, '2', '2', 'G', NULL, 1),
+(5, 'CL121', 'TECNICAS DE PROGRAMACION', 4, '3', '2', 'E', NULL, 1),
+(8, 'CL164', 'ALGORITMO Y ESTRUCTURA DE DATOS I', 4, '2', '3', 'E', NULL, 2),
+(9, 'MM185', 'CALCULO I', 4, '3', '3', 'G', NULL, 2),
+(10, 'MM180', 'LOGICA MATEMATICA', 4, '2', '3', 'E', NULL, 2),
+(11, 'CL169', 'DISEÑO ASISTIDO POR COMPUTADORA', 4, '2', '3', 'E', NULL, 2),
+(12, 'CL186', 'DISEÑO GRAFICO', 3, '2', '2', 'ES', NULL, 2),
+(13, 'CL187', 'TOPICOS DE INTERNET', 3, '2', '2', 'ES', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -243,9 +243,11 @@ CREATE TABLE `horario` (
   `IdHorario` int(11) NOT NULL,
   `Dia` int(11) NOT NULL,
   `HoraTotal` int(11) NOT NULL,
+  `TipoC` varchar(10) NOT NULL,
   `Estado` int(2) DEFAULT NULL,
-  `IdHora` int(11) NOT NULL,
-  `IdAmb` int(11) NOT NULL
+  `IdHora` varchar(11) NOT NULL,
+  `IdAmb` int(11) NOT NULL,
+  `IdCurGrup` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -392,7 +394,7 @@ ALTER TABLE `hora`
 ALTER TABLE `horario`
   ADD PRIMARY KEY (`IdHorario`),
   ADD KEY `IdAmb` (`IdAmb`),
-  ADD KEY `IdHora` (`IdHora`);
+  ADD KEY `IdCurGrup` (`IdCurGrup`);
 
 --
 -- Indices de la tabla `horariodispo`
@@ -536,7 +538,7 @@ ALTER TABLE `cursorequisito`
 --
 ALTER TABLE `horario`
   ADD CONSTRAINT `horario_ibfk_1` FOREIGN KEY (`IdAmb`) REFERENCES `ambiente` (`IdAmb`),
-  ADD CONSTRAINT `horario_ibfk_2` FOREIGN KEY (`IdHora`) REFERENCES `hora` (`IdHora`);
+  ADD CONSTRAINT `horario_ibfk_2` FOREIGN KEY (`IdCurGrup`) REFERENCES `curgrup` (`IdCurGrup`);
 
 --
 -- Filtros para la tabla `horariodispo`
