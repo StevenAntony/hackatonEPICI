@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2019 a las 21:46:35
+-- Tiempo de generación: 25-06-2019 a las 21:57:19
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -244,8 +244,9 @@ CREATE TABLE `horario` (
   `Dia` int(11) NOT NULL,
   `HoraTotal` int(11) NOT NULL,
   `Estado` int(2) DEFAULT NULL,
-  `IdHora` int(11) NOT NULL,
-  `IdAmb` int(11) NOT NULL
+  `IdHora` varchar(11) NOT NULL,
+  `IdAmb` int(11) NOT NULL,
+  `IdCurGrup` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -392,7 +393,7 @@ ALTER TABLE `hora`
 ALTER TABLE `horario`
   ADD PRIMARY KEY (`IdHorario`),
   ADD KEY `IdAmb` (`IdAmb`),
-  ADD KEY `IdHora` (`IdHora`);
+  ADD KEY `IdCurGrup` (`IdCurGrup`);
 
 --
 -- Indices de la tabla `horariodispo`
@@ -536,7 +537,7 @@ ALTER TABLE `cursorequisito`
 --
 ALTER TABLE `horario`
   ADD CONSTRAINT `horario_ibfk_1` FOREIGN KEY (`IdAmb`) REFERENCES `ambiente` (`IdAmb`),
-  ADD CONSTRAINT `horario_ibfk_2` FOREIGN KEY (`IdHora`) REFERENCES `hora` (`IdHora`);
+  ADD CONSTRAINT `horario_ibfk_2` FOREIGN KEY (`IdCurGrup`) REFERENCES `curgrup` (`IdCurGrup`);
 
 --
 -- Filtros para la tabla `horariodispo`
