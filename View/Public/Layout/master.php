@@ -17,7 +17,7 @@
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
         <a class="navbar-brand brand-logo" href="../../index.html">
-          <img src="http://localhost/EPICI2019/hackatonEPICI/View/Assets/img/epici.png" alt="logo" />
+          <img src="http://localhost/EPICI2019/hackatonEPICI/View/Assets/img/epici.png" alt="logo" style="margin-top: -30px;height: auto" />
         </a>
         <a class="navbar-brand brand-logo-mini" href="../../index.html">
           <img src="http://localhost/EPICI2019/hackatonEPICI/View/Assets/img/epici.png" alt="logo" />
