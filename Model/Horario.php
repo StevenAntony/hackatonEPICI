@@ -22,5 +22,15 @@
             return false;
         }
     }
+
+    public static function registrarHorario($dia,$horaTotal,$tipoC,$estado,$idHora,$idAmb,$idCurGrup){
+        $consulta = 'INSERT INTO horario(Dia, HoraTotal, TipoC, Estado, IdHora, IdAmb, IdCurGrup) VALUES ('.$dia.','.$horaTotal.','.$tipoC.','.$estado.','.$idHora.','.$idAmb.','.$idCurGrup.')';
+        try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute();
+        } catch (PDOException $e) {
+            return false;
+        }
     }
+}
 ?>

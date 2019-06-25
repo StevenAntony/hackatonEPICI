@@ -35,6 +35,8 @@
                         <tr>
                             <th>Código</th>
                             <th>Asignatura</th>
+                            <th>Horas Practicas</th>
+                            <th>Horas Teoricas</th>
                             <th>Créditos</th>
                             <th>Tipo</th>
                         </tr>
