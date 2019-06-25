@@ -226,6 +226,18 @@
               <span class="menu-title">Gestionar Horario</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Public/Horario/mostrar.php">
+              <i class="menu-icon mdi mdi-television"></i>
+              <span class="menu-title">Mostra Horario</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Public/CursoGrupo/asignarCurso.php">
+              <i class="menu-icon mdi mdi-television"></i>
+              <span class="menu-title">Asignar Curso</span>
+            </a>
+          </li>
           <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-content-copy"></i>
@@ -299,26 +311,3 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-        </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->
-        <footer class="footer">
-          <div class="container-fluid clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
-              <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
-              <i class="mdi mdi-heart text-danger"></i>
-            </span>
-          </div>
-        </footer>
-        <!-- partial -->
-      </div>
-    </div>
-  </div>
-  <script src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/js/vendor.bundle.base.js"></script>
-  <script src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/js/vendor.bundle.addons.js"></script>
-  <script src=".http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/js/off-canvas.js"></script>
-  <script src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/js/misc.js"></script>
-</body>
-
-</html>
