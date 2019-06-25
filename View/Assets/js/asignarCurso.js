@@ -25,11 +25,13 @@ $(document).ready(function () {
 
   });
   $('#MostrarHorario').click(function () {
+    // alert($('#ambientes').val())
     $.ajax({
       type: "POST",
       url: 'http://localhost:2000/EPICI2019/hackatonEPICI/Controller/Horario/horarioAmbiente.php',
       data: {
-        ambiente: 5
+        ambiente: $('#ambientes').val(),
+        dni: $('#dniDocenten').val()
       },
       dataType: "json",
       // headers: {
@@ -39,7 +41,7 @@ $(document).ready(function () {
 
       },
       success: function (response) {
-        console.log(response.length);
+        // console.log(response.length);
         var html = '';
         var htmlAux = '';
         var hora = ['7:30', '8:20', '9:10', '10:00', '10:50', '11:40', '12:30', '13:20', '14:10', '15:00', '16:40', '17:30', '18:20', '19:10', '20:00', '7:30'];
@@ -47,21 +49,84 @@ $(document).ready(function () {
           html = html + '<tr><td class="py-1">' + hora[i - 1] + '</td>'
           for (var k = 1; k < 6; k++) {
             htmlAux = '';
-            for (var j = 0; j < response.length; j++) {
-              console.log(k +'-'+response[j]['Dia']);
 
-              if (k == response[j]['Dia']) {
-                var horas = explode(response[j]['IdHora']);
-                var pos = horas.indexOf(i + "")
+            if (response['ambiente'].length > 0) {
 
-                if (pos != -1) {
+              for (var j = 0; j < response['ambiente'].length; j++) {
+                console.log(k + '-' + response['ambiente'][j]['Dia']);
 
-                  htmlAux = '<td style=" background: #bb3339;"><span class="small" style="color:#ffffff">' + response[j]['DescripcionCurso'] + '   (' + response[j]['CodigoCurso'] + '-' + response[j]['DescripcionGrupo']+')</span></td>';
-                }else{
-                  htmlAux = '<td style=" background: #13d469;"></td>';
+                if (k == response['ambiente'][j]['Dia']) {
+                  var horas = explode(response['ambiente'][j]['IdHora']);
+                  var pos = horas.indexOf(i + "")
+
+                  if (pos != -1) {
+
+                    htmlAux = '<td style=" background: #bb3339;"><span class="small" style="color:#ffffff">' + response['ambiente'][j]['DescripcionCurso'] + '   (' + response['ambiente'][j]['CodigoCurso'] + '-' + response['ambiente'][j]['DescripcionGrupo'] + ')</span></td>';
+                  } else {
+                    if (response['disponible'].length > 0) {
+                      for (var l = 0; l < response['disponible'].length; l++) {
+
+                        if (k == response['disponible'][l]['DiaHD']) {
+                          var horasHD = explode(response['disponible'][l]['IdHora']);
+                          var pos = horasHD.indexOf(i + "")
+
+                          if (pos != -1) {
+                            htmlAux = '<td style=" background: #13d469;"></td>';
+                          } else {
+                            htmlAux = '<td style=" background: #d4b622!important"></td>';
+                          }
+                        } else {
+                          htmlAux = '<td style=" background: #d4b622!important"></td>';
+                        }
+                      }
+                    }else{
+                      htmlAux = '<td style=" background: #d4b622;"></td>';
+                    }
+                    // htmlAux = '<td style=" background: #13d469;"></td>';
+                  }
+                } else {
+                  // htmlAux = '<td style=" background: #13d469;"></td>';
+                  if (response['disponible'].length > 0) {
+                    for (var l = 0; l < response['disponible'].length; l++) {
+
+                      if (k == response['disponible'][l]['DiaHD']) {
+                        var horasHD = explode(response['disponible'][l]['IdHora']);
+                        var pos = horasHD.indexOf(i + "")
+
+                        if (pos != -1) {
+                          htmlAux = '<td style=" background: #13d469;"></td>';
+                        } else {
+                          htmlAux = '<td style=" background: #d4b622!important"></td>';
+                        }
+                      } else {
+                        htmlAux = '<td style=" background: #d4b622!important"></td>';
+                      }
+                    }
+                  }else{
+                    htmlAux = '<td style=" background: #d4b622;"></td>';
+                  }
                 }
-              }else{
-                htmlAux = '<td style=" background: #13d469;"></td>';
+              }
+            }else{
+              // htmlAux = '<td style=" background: #13d469;"></td>';
+              if (response['disponible'].length > 0) {
+                for (var l = 0; l < response['disponible'].length; l++) {
+
+                  if (k == response['disponible'][l]['DiaHD']) {
+                    var horasHD = explode(response['disponible'][l]['IdHora']);
+                    var pos = horasHD.indexOf(i + "")
+
+                    if (pos != -1) {
+                      htmlAux = '<td style=" background: #13d469;"></td>';
+                    } else {
+                      htmlAux = '<td style=" background: #d4b622!important"></td>';
+                    }
+                  } else {
+                    htmlAux = '<td style=" background: #d4b622!important"></td>';
+                  }
+                }
+              } else {
+                htmlAux = '<td style=" background: #d4b622;"></td>';
               }
             }
             html = html +''+htmlAux;
@@ -112,4 +177,25 @@ function cargarAmbiente(){
       $("#ambientes").html(data);
     }
   });
+}
+
+function guardarHorario(){
+  var idCurGrup = $("#cursos").attr("keyGroup");
+  var idAmb = $("#ambientes").val();
+  //idHora
+  var idHora;
+  var tipoC = $("#tipoCurso").val();
+  //horatotal
+  var horaTotal;
+  //dia que se dara
+  var dia;
+  var parametros={"dia":dia,"horaTotal":horaTotal,"tipoC":tipoC,"estado":1,"idHora":idHora,"idAmb":idAmb,"idCurGrup":idCurGrup}
+  $.ajax({
+    type:"POST",
+    url:"../../../Controller/Horario/registrarHorario.php",
+    data:parametros,
+    success:function(data){
+      $("#ambientes").html(data);
+    }
+  }); 
 }
