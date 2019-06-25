@@ -221,7 +221,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
+            <a class="nav-link" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Public/Horario/asignarHorario.php">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Gestionar Horario</span>
             </a>

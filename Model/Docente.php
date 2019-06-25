@@ -3,10 +3,11 @@
 
     class Docente{
         public static function validate($dni){
-            $consulta = 'SELECT `IdUsuario`, `Usuario`, `Contrasenia`, `TipoUsuario`, `Estado` FROM `usuario` WHERE 1';
+            $consulta = 'SELECT `IdDoc`,`NombreDoc`, `ApPaternoDoc`, `ApMaternoDoc` FROM `docente` WHERE `DNIDoc` ='.$dni.'';
             try {
                 $comando = Database::getInstance()->getDb()->prepare($consulta);
-
+                $comando->execute();
+                return $comando->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return false;
             }
