@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if($_SESSION["status"]){
+      header('Location: index.php');
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,15 +36,10 @@
                   <img style="height: 100%;width: 100%;" src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Img/LOGO.png">
               </div>
             </div>
+            
             <div class="col-lg-4 mx-auto">
-              <div class="box-body">
-                <div class="alert alert-danger alert-dismissible">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                  <h4><i class="icon fa fa-info"></i>Alerta!</h4>
-                  Los Datos Ingresados no son Correctos
-                </div>
+              <div id="error">
               </div>
-                
               <div class="auto-form-wrapper">
                 <form action="#">
                   <div class="form-group">
@@ -64,7 +65,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <button class="btn btn-primary submit-btn btn-block" id="ingresar">Login</button>
+                    <button type="button" class="btn btn-primary submit-btn btn-block" id="ingresar">Login</button>
                   </div>
                 </form>
               </div>
@@ -86,6 +87,6 @@
     <script src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/js/shared/misc.js"></script>
     <!-- endinject -->
     <script src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/jquery/jquery-3.4.1.min.js"></script>
-    <script src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/js/ajaxLogin.js"></script>
+    <script src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/js/ajaxLogin.js"></script>
   </body>
 </html>
