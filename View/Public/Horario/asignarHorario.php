@@ -44,9 +44,9 @@ include_once('../Layout/master.php');
       <div class="col-md-2">
         <div class="form-group">
           <span class="small">Tipo</span>
-          <select class="form-control">
-            <option>Teoria</option>
-            <option>Practica</option>
+          <select class="form-control" id="tipoCurso">
+            <option value="1">Teoria</option>
+            <option value="2">Practica</option>
           </select>
         </div>
       </div>

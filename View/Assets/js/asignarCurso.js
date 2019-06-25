@@ -113,3 +113,24 @@ function cargarAmbiente(){
     }
   });
 }
+
+function guardarHorario(){
+  var idCurGrup = $("#cursos").attr("keyGroup");
+  var idAmb = $("#ambientes").val();
+  //idHora
+  var idHora;
+  var tipoC = $("#tipoCurso").val();
+  //horatotal
+  var horaTotal;
+  //dia que se dara
+  var dia;
+  var parametros={"dia":dia,"horaTotal":horaTotal,"tipoC":tipoC,"estado":1,"idHora":idHora,"idAmb":idAmb,"idCurGrup":idCurGrup}
+  $.ajax({
+    type:"POST",
+    url:"../../../Controller/Horario/registrarHorario.php",
+    data:parametros,
+    success:function(data){
+      $("#ambientes").html(data);
+    }
+  }); 
+}

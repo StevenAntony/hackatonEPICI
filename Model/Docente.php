@@ -13,7 +13,7 @@
             }
         }
         public static function mostrarCurso ($id){
-            $consulta = 'SELECT C.CodigoCurso,C.TipoCur,C.DescripcionCurso,CG.IdGrupo FROM docente D inner join curgrup CG on D.IdDoc = CG.IdDoc inner join curso C on CG.IdCurGrup = C.IdCurso WHERE D.IdDoc= '.$id;
+            $consulta = 'SELECT CG.IdCurGrup,C.IdCurso,C.CodigoCurso,C.TipoCur,C.DescripcionCurso,CG.IdGrupo FROM docente D inner join curgrup CG on D.IdDoc = CG.IdDoc inner join curso C on CG.IdCurGrup = C.IdCurso WHERE D.IdDoc= '.$id;
             try {
                 $comando = Database::getInstance()->getDb()->prepare($consulta);
                 $comando->execute();
