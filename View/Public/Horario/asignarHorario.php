@@ -33,9 +33,8 @@ include_once('../Layout/master.php');
         <div class="col-md-4">
           <div class="form-group">
             <span class="small">Curso</span>
-            <select class="form-control">
-              <option>Programacion Avanzada (CL20) - Grupo A</option>
-              <option>Diseño Grafico (DG03) - Grupo B </option>
+            <select class="form-control" id="cursos">
+              
             </select>
           </div>
         </div>
