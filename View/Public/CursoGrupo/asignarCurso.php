@@ -3,6 +3,16 @@ include_once('../Layout/master.php');
 ?>
 
 <link rel="stylesheet" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/iconfonts/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/icheck/skins/all.css">
+<style>
+  /* .input-helper::before {
+    background: red !important;
+  } */
+  .form-check.form-check-flat label input:checked+.input-helper:before {
+    background-color: red !important;
+    border: none;
+  }
+</style>
 <div class="card">
   <div class="card-body">
     <h4 class="card-title">Asignar Curso - Semenestre 2019-I</h4>
@@ -66,19 +76,49 @@ include_once('../Layout/master.php');
       <div class="col-md-1">
         <button type="button" class="btn btn-success" style="margin-top: 24px;"><i class="fa fa-plus text-white"></i></button>
       </div>
-      <div class="col-md-5">
-        <div class="form-group">
+    </div>
+
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <span class="small">CURSOS ASIGNADOS</span>
+        <div class="form-group" style="border: 1px solid #eae9e9;padding: 10px;">
           <div class="form-check form-check-flat">
             <label class="form-check-label">
-              <input type="checkbox" class="form-check-input" checked=""> Checked
+              <input type="checkbox" class="form-check-input"> Programacion Avanzada(CL20) - GRUPO A
               <i class="input-helper"></i></label>
           </div>
+          <div class="form-check form-check-flat">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input"> Diseño Grafico (DG03) - GRUPO B
+              <i class="input-helper"></i></label>
+          </div>
+          <!-- <div class="form-check form-check-flat">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input"> Checked
+              <i class="input-helper"></i></label>
+          </div>
+          <div class="form-check form-check-flat">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input"> Checked
+              <i class="input-helper"></i></label>
+          </div> -->
         </div>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-danger" style="margin-top: 24px;"><i class="fa fa-minus text-white"></i></button>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-2">
+        <button type="button" class="btn btn-primary btn-fw">Registrar</button>
       </div>
     </div>
   </div>
-</div>
 
 <?php
-include_once('../Layout/footer.php');
+  include_once('../Layout/footer.php');
 ?>
