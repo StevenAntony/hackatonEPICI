@@ -3,7 +3,11 @@ include_once('../Layout/master.php');
 ?>
 
 <link rel="stylesheet" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/iconfonts/font-awesome/css/font-awesome.min.css">
-
+<style>
+  td{
+    padding: 0;
+  }
+</style>
 <div class="card">
   <div class="card-body">
     <h4 class="card-title">Asignar Horario - Semenestre 2019-I</h4>
@@ -49,9 +53,7 @@ include_once('../Layout/master.php');
       <div class="col-md-2">
         <div class="form-group">
           <span class="small">Ambiente</span>
-          <select class="form-control">
-            <option>Laboratorio 01</option>
-            <option>Aula 10</option>
+          <select class="form-control" id="ambientes">
           </select>
         </div>
       </div>
@@ -86,63 +88,8 @@ include_once('../Layout/master.php');
               </th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td class="py-1">
-                07:30
-              </td>
+          <tbody id ="tablaHA">
 
-            </tr>
-            <tr>
-              <td class="py-1">
-                08:20
-              </td>
-            </tr>
-            <tr>
-              <td class="py-1">
-                09:10
-              </td>
-            </tr>
-            <tr>
-              <td class="py-1">
-                10:00
-              </td>
-            </tr>
-            <tr>
-              <td class="py-1">
-                10:50
-              </td>
-            </tr>
-            <tr>
-              <td class="py-1">
-                11:40
-              </td>
-            </tr>
-            <tr>
-              <td class="py-1">
-                12:30
-              </td>
-            </tr>
-            <tr>
-              <td class="py-1">
-                13:20
-              </td>
-            </tr>
-            <tr>
-              <td class="py-1">
-                14:10
-              </td>
-            </tr>
-            <tr>
-              <td class="py-1">
-                15:00
-              </td>
-            </tr>
-            <tr>
-              <td class="py-1">
-                15:50
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
