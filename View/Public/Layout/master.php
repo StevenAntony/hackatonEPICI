@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>GESTIONAR HORARIO DOCENTE EPICI</title>
-  <link rel="stylesheet" href="http://localhost/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="http://localhost/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="http://localhost/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/css/vendor.bundle.addons.css">
+  <link rel="stylesheet" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/css/vendor.bundle.addons.css">
 
-  <link rel="stylesheet" href="http://localhost/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/css/style.css">
+  <link rel="stylesheet" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/css/style.css">
 </head>
 
 <body>
@@ -17,10 +17,10 @@
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
         <a class="navbar-brand brand-logo" href="../../index.html">
-          <img src="http://localhost/EPICI2019/hackatonEPICI/View/Assets/img/epici.png" alt="logo" style="margin-top: -30px;height: auto" />
+          <img src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/img/epici.png" alt="logo" style="margin-top: -30px;height: auto" />
         </a>
         <a class="navbar-brand brand-logo-mini" href="../../index.html">
-          <img src="http://localhost/EPICI2019/hackatonEPICI/View/Assets/img/epici.png" alt="logo" />
+          <img src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/img/epici.png" alt="logo" />
         </a>
       </div>
       <!-- <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -315,10 +315,10 @@
       </div>
     </div>
   </div>
-  <script src="http://localhost/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/js/vendor.bundle.base.js"></script>
-  <script src="http://localhost/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/js/vendor.bundle.addons.js"></script>
-  <script src=".http://localhost/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/js/off-canvas.js"></script>
-  <script src="http://localhost/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/js/misc.js"></script>
+  <script src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/js/vendor.bundle.base.js"></script>
+  <script src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/js/vendor.bundle.addons.js"></script>
+  <script src=".http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/js/off-canvas.js"></script>
+  <script src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/js/misc.js"></script>
 </body>
 
 </html>
