@@ -49,9 +49,9 @@ class Database
     {
       if (self::$pdo == null) {
             self::$pdo = new PDO(
-                'mysql:dbname=basetpi'. //DATABASE .
+                'mysql:dbname=epici'. //DATABASE .
                 ';host=localhost' . //HOSTNAME.
-                ';port:8080;', // Eliminar este elemento si se usa una instalaci�n por defecto
+                ';port:2000;', // Eliminar este elemento si se usa una instalaci�n por defecto
                 'root',//USERNAME,
                 ''//PASSWORD
                 //array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
