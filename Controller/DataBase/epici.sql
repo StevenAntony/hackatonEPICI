@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2019 a las 19:19:15
+-- Tiempo de generación: 25-06-2019 a las 19:43:16
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -258,7 +258,8 @@ CREATE TABLE `horariodispo` (
   `IdHD` int(11) NOT NULL,
   `DiaHD` varchar(20) NOT NULL,
   `Estado` int(2) DEFAULT NULL,
-  `IdHora` int(11) NOT NULL
+  `IdHora` int(11) NOT NULL,
+  `IdDoc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -398,7 +399,8 @@ ALTER TABLE `horario`
 --
 ALTER TABLE `horariodispo`
   ADD PRIMARY KEY (`IdHD`),
-  ADD KEY `IdHora` (`IdHora`);
+  ADD KEY `IdHora` (`IdHora`),
+  ADD KEY `IdDoc` (`IdDoc`);
 
 --
 -- Indices de la tabla `requisito`
@@ -540,7 +542,8 @@ ALTER TABLE `horario`
 -- Filtros para la tabla `horariodispo`
 --
 ALTER TABLE `horariodispo`
-  ADD CONSTRAINT `horariodispo_ibfk_1` FOREIGN KEY (`IdHora`) REFERENCES `hora` (`IdHora`);
+  ADD CONSTRAINT `horariodispo_ibfk_1` FOREIGN KEY (`IdHora`) REFERENCES `hora` (`IdHora`),
+  ADD CONSTRAINT `horariodispo_ibfk_2` FOREIGN KEY (`IdDoc`) REFERENCES `docente` (`IdDoc`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
