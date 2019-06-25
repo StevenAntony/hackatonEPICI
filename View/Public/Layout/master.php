@@ -240,13 +240,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Public/Reporte/Cursos_Ciclos.php">
+            <a class="nav-link" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Public/Reportes/Cursos_Ciclo.php">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Listar Cursos por Ciclo</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Public/Reporte/Grupos_Curso.php">
+            <a class="nav-link" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Public/Reportes/Grupos_Curso.php">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Listar Cursos</span>
             </a>
