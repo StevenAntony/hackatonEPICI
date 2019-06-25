@@ -9,18 +9,18 @@
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label" style="font-size: 18px;">Ciclo: </label>
                     <div class="col-sm-9">
-                        <select>
-                        <option value="">SELECCIONE</option>
-                            <option value="" id="1">PRIMERO</option>
-                            <option value="">SEGUNDO</option>
-                            <option value="">TERCERO</option>
-                            <option value="">CUARTO</option>
-                            <option value="">QUINTO</option>
-                            <option value="">SEXTO</option>
-                            <option value="">SEPTIMO</option>
-                            <option value="">OCTAVO</option>
-                            <option value="">NOVENO</option>
-                            <option value="">DECIMO</option>
+                        <select id="seleccionar">
+                            <option value="">SELECCIONE</option>
+                            <option value="PRIMERO" >PRIMERO</option>
+                            <option value="SEGUNDO">SEGUNDO</option>
+                            <option value="TERCERO">TERCERO</option>
+                            <option value="CUARTO">CUARTO</option>
+                            <option value="QUINTO">QUINTO</option>
+                            <option value="SEXTO">SEXTO</option>
+                            <option value="SEPTIMO">SEPTIMO</option>
+                            <option value="OCTAVO">OCTAVO</option>
+                            <option value="NOVENO">NOVENO</option>
+                            <option value="DECIMO">DECIMO</option>
                         </select>
                     </div>
                 </div>
@@ -39,14 +39,33 @@
                             <th>Tipo</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tabla">
                     
                     </tbody>
                 </table>
             </div>
+        </div>
+
+        <div class="card" style="width: 25%; margin-top:25px">
+            <table class="table table-bordered">
+                <tr class="table-info">
+                    <td>G</td>
+                    <td>Generales</td>
+                </tr>
+                <tr class="table-secondary">
+                    <td>E</td>
+                    <td>Especificos</td>
+                </tr>
+                <tr class="table-primary">
+                    <td>ES</td>
+                    <td>Especialidades</td>
+                </tr>
+            </table>
         </div>
     </div>
 
 <?php 
     include("../Layout/footer.php")
 ?>
+
+<script src="../../Assets/js/ajaxlistarcursos.js"></script>

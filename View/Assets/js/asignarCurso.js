@@ -5,13 +5,8 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: 'http://localhost:2000/EPICI2019/hackatonEPICI/Controller/AsignarCurso/validarDocente.php',
-      data: {
-        dni: $('#dniDocenten').val()
-      },
+      data: {dni: $('#dniDocenten').val()},
       dataType: "json",
-      // headers: {
-        // 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-      // },
       beforeSend: function () {
 
       },
@@ -20,6 +15,7 @@ $(document).ready(function () {
         if (response['ban'] == 1) {
           $('.dDocente').html(response['nombre']);
           $('.dDocente').attr('key', response['id']);
+          mostrarCursos();
         }else{
           $('.dDocente').html('');
           $('.dDocente').attr('key', '');
@@ -28,7 +24,6 @@ $(document).ready(function () {
     });
 
   });
-
   $('#MostrarHorario').click(function () {
     $.ajax({
       type: "POST",
@@ -94,3 +89,16 @@ $(document).ready(function () {
   // console.log(explode('1,2,3'));
 
 });
+
+function mostrarCursos(){
+  var id = $(".dDocente").attr("key");
+  var parametros = {"idDocente":id};
+  $.ajax({
+    type:"POST",
+    url:"../../../Controller/AsignarCurso/obtenerCursos.php",
+    data:parametros,
+    success:function(data){
+      $("#cursos").html(data);
+    }
+  });
+}
