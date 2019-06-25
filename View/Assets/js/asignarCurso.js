@@ -45,18 +45,36 @@ $(document).ready(function () {
       },
       success: function (response) {
         console.log(response.length);
-        for (var i = 1; i < 6; i++) {
-          for (var j = 0; j < response.length; j++) {
-            if (i == response[j]['Dia']) {
-              var horas = explode(response[j]['IdHora']);
-              for (var k = 1; k < 16 ; k++) {
-                console.log(horas);
+        var html = '';
+        var htmlAux = '';
+        var hora = ['7:30', '8:20', '9:10', '10:00', '10:50', '11:40', '12:30', '13:20', '14:10', '15:00', '16:40', '17:30', '18:20', '19:10', '20:00', '7:30'];
+        for (var i = 1; i < 16; i++) {
+          html = html + '<tr><td class="py-1">' + hora[i - 1] + '</td>'
+          for (var k = 1; k < 6; k++) {
+            htmlAux = '';
+            for (var j = 0; j < response.length; j++) {
+              console.log(k +'-'+response[j]['Dia']);
 
-                console.log(horas.indexOf(k+""));
+              if (k == response[j]['Dia']) {
+                var horas = explode(response[j]['IdHora']);
+                var pos = horas.indexOf(i + "")
+
+                if (pos != -1) {
+
+                  htmlAux = '<td style=" background: #bb3339;"><span class="small" style="color:#ffffff">' + response[j]['DescripcionCurso'] + '   (' + response[j]['CodigoCurso'] + '-' + response[j]['DescripcionGrupo']+')</span></td>';
+                }else{
+                  htmlAux = '<td style=" background: #13d469;"></td>';
+                }
+              }else{
+                htmlAux = '<td style=" background: #13d469;"></td>';
               }
             }
+            html = html +''+htmlAux;
           }
+          html = html + '</tr>';
         }
+
+        $('#tablaHA').html(html);
       }
     });
   });
