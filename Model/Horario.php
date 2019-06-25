@@ -11,5 +11,16 @@
                 return false;
             }
         }
+    public static function HorarioDisponible($dni)
+    {
+        $consulta = 'SELECT * FROM `docente` d INNER JOIN `horariodispo` hd ON d.IdDoc = hd.IdDoc  WHERE d.DNIDoc =' . $dni . '';
+        try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute();
+            return $comando->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
     }
 ?>

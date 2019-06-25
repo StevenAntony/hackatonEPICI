@@ -4,7 +4,7 @@ include_once('../Layout/master.php');
 
 <link rel="stylesheet" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Lib/Star/vendors/iconfonts/font-awesome/css/font-awesome.min.css">
 <style>
-  td{
+  td {
     padding: 0;
   }
 </style>
@@ -41,7 +41,7 @@ include_once('../Layout/master.php');
           </select>
         </div>
       </div>
-      <div class="col-md-2">
+      <!-- <div class="col-md-2">
         <div class="form-group">
           <span class="small">Tipo</span>
           <select class="form-control">
@@ -49,7 +49,10 @@ include_once('../Layout/master.php');
             <option>Practica</option>
           </select>
         </div>
-      </div>
+      </div> -->
+    </div>
+    <hr>
+    <div class="row">
       <div class="col-md-2">
         <div class="form-group">
           <span class="small">Ambiente</span>
@@ -58,12 +61,12 @@ include_once('../Layout/master.php');
         </div>
       </div>
       <div class="col-md-2">
-        <button type="button" id="MostrarHorario" class="btn btn-primary btn-fw">Mostrar Horario</button>
+        <button type="button" id="MostrarHorario" class="btn btn-primary btn-fw" style="margin-top:25px">Mostrar Horario</button>
       </div>
     </div>
     <hr>
     <div>
-      <span class="small">Horario Semenestre 2019-I del Laboratorio 01</span>
+      <span class="small">Horario Semenestre 2019-I</span>
       <div class="table-responsive">
         <table class="table table-bordered">
           <thead style="text-align: center;">
@@ -88,7 +91,7 @@ include_once('../Layout/master.php');
               </th>
             </tr>
           </thead>
-          <tbody id ="tablaHA">
+          <tbody id="tablaHA">
 
           </tbody>
         </table>
