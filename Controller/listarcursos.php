@@ -1,6 +1,7 @@
 <?php 
 
     require '../Model/Curso.php';
+    $ciclo = $_POST["ciclo"];
     $total = Curso::listarcursoxciclo($ciclo);
 
     foreach ($total as $key) {
