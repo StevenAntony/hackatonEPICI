@@ -44,66 +44,83 @@ $(document).ready(function () {
         // console.log(response.length);
         var html = '';
         var htmlAux = '';
+        var ban = 0;
+        var ban2 = 0;
         var hora = ['7:30', '8:20', '9:10', '10:00', '10:50', '11:40', '12:30', '13:20', '14:10', '15:00', '16:40', '17:30', '18:20', '19:10', '20:00', '7:30'];
         for (var i = 1; i < 16; i++) {
           html = html + '<tr><td class="py-1">' + hora[i - 1] + '</td>'
           for (var k = 1; k < 6; k++) {
             htmlAux = '';
-
+            ban = 0;
+            ban2 = 0;
             if (response['ambiente'].length > 0) {
 
-              for (var j = 0; j < response['ambiente'].length; j++) {
-                console.log(k + '-' + response['ambiente'][j]['Dia']);
+              for (var j = 0; j < parseInt(response['ambiente'].length); j++) {
+                // alert(ban )
+                if(ban == 0){
+                  if (k == response['ambiente'][j]['Dia']) {
+                    var horas = explode(response['ambiente'][j]['IdHora']);
+                    var pos = horas.indexOf(i + "")
 
-                if (k == response['ambiente'][j]['Dia']) {
-                  var horas = explode(response['ambiente'][j]['IdHora']);
-                  var pos = horas.indexOf(i + "")
+                    if (pos != -1) {
+                      htmlAux = '';
+                      htmlAux = '<td style=" background: #bb3339;"><span class="small" style="color:#ffffff">' + response['ambiente'][j]['DescripcionCurso'] + '   (' + response['ambiente'][j]['CodigoCurso'] + '-' + response['ambiente'][j]['DescripcionGrupo'] + ')</span></td>';
+                      ban = 1;
+                    } else {
+                      if (response['disponible'].length > 0) {
+                        // alert(response['disponible'].length)
+                        for (var l = 0; l < response['disponible'].length; l++) {
+                          if (ban2 == 0) {
+                            if (k == response['disponible'][l]['DiaHD']) {
+                              var horasHD = explode(response['disponible'][l]['IdHora']);
+                              var pos = horasHD.indexOf(i + "")
 
-                  if (pos != -1) {
-
-                    htmlAux = '<td style=" background: #bb3339;"><span class="small" style="color:#ffffff">' + response['ambiente'][j]['DescripcionCurso'] + '   (' + response['ambiente'][j]['CodigoCurso'] + '-' + response['ambiente'][j]['DescripcionGrupo'] + ')</span></td>';
+                              if (pos != -1) {
+                                htmlAux = '';
+                                htmlAux = '<td class="' + k + '' + i +'" data-toggle="modal" data-target="#exampleModalLong" style=" background: #13d469;cursor:pointer"></td>';
+                                ban2 = 1;
+                              } else {
+                                htmlAux = '';
+                                htmlAux = '<td style=" background: #d4b622"></td>';
+                              }
+                            } else {
+                              htmlAux = '';
+                              htmlAux = '<td style=" background: #d4b622"></td>';
+                            }
+                          }
+                        }
+                      }else{
+                        htmlAux = '<td style=" background: #d4b622;"></td>';
+                      }
+                      // htmlAux = '<td style=" background: #13d469;"></td>';
+                    }
                   } else {
+                    // htmlAux = '<td style=" background: #13d469;"></td>';
                     if (response['disponible'].length > 0) {
                       for (var l = 0; l < response['disponible'].length; l++) {
+                        if (ban2 == 0) {
+                          if (k == response['disponible'][l]['DiaHD']) {
+                            var horasHD = explode(response['disponible'][l]['IdHora']);
+                            var pos = horasHD.indexOf(i + "")
 
-                        if (k == response['disponible'][l]['DiaHD']) {
-                          var horasHD = explode(response['disponible'][l]['IdHora']);
-                          var pos = horasHD.indexOf(i + "")
-
-                          if (pos != -1) {
-                            htmlAux = '<td style=" background: #13d469;"></td>';
+                            if (pos != -1) {
+                              htmlAux = '';
+                              htmlAux = '<td style=" background: #13d469;" data-toggle="modal" data-target="#exampleModalLong"></td>';
+                              ban2 = 1;
+                            } else {
+                              htmlAux = '';
+                              htmlAux = '<td style=" background: #d4b622"></td>';
+                            }
                           } else {
-                            htmlAux = '<td style=" background: #d4b622!important"></td>';
+                            htmlAux = '';
+                            htmlAux = '<td style=" background: #d4b622"></td>';
                           }
-                        } else {
-                          htmlAux = '<td style=" background: #d4b622!important"></td>';
                         }
                       }
                     }else{
+                      htmlAux = '';
                       htmlAux = '<td style=" background: #d4b622;"></td>';
                     }
-                    // htmlAux = '<td style=" background: #13d469;"></td>';
-                  }
-                } else {
-                  // htmlAux = '<td style=" background: #13d469;"></td>';
-                  if (response['disponible'].length > 0) {
-                    for (var l = 0; l < response['disponible'].length; l++) {
-
-                      if (k == response['disponible'][l]['DiaHD']) {
-                        var horasHD = explode(response['disponible'][l]['IdHora']);
-                        var pos = horasHD.indexOf(i + "")
-
-                        if (pos != -1) {
-                          htmlAux = '<td style=" background: #13d469;"></td>';
-                        } else {
-                          htmlAux = '<td style=" background: #d4b622!important"></td>';
-                        }
-                      } else {
-                        htmlAux = '<td style=" background: #d4b622!important"></td>';
-                      }
-                    }
-                  }else{
-                    htmlAux = '<td style=" background: #d4b622;"></td>';
                   }
                 }
               }
@@ -117,20 +134,25 @@ $(document).ready(function () {
                     var pos = horasHD.indexOf(i + "")
 
                     if (pos != -1) {
-                      htmlAux = '<td style=" background: #13d469;"></td>';
+                      htmlAux = '';
+                      htmlAux = '<td style=" background: #13d469; data-toggle="modal" data-target="#exampleModalLong""></td>';
                     } else {
-                      htmlAux = '<td style=" background: #d4b622!important"></td>';
+                      htmlAux = '';
+                      htmlAux = '<td style=" background: #d4b622"></td>';
                     }
                   } else {
-                    htmlAux = '<td style=" background: #d4b622!important"></td>';
+                    htmlAux = '';
+                    htmlAux = '<td style=" background: #d4b622"></td>';
                   }
                 }
               } else {
                 htmlAux = '<td style=" background: #d4b622;"></td>';
               }
             }
-            html = html +''+htmlAux;
+            html = html + '' + htmlAux;
           }
+          console.log(html);
+
           html = html + '</tr>';
         }
 
