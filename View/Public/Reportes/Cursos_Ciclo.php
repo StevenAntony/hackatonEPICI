@@ -48,20 +48,27 @@
             </div>
         </div>
 
-        <div class="card" style="width: 25%; margin-top:25px">
-            <table class="table table-bordered">
-                <tr class="table-info">
-                    <td>G</td>
-                    <td>Generales</td>
-                </tr>
-                <tr class="table-secondary">
-                    <td>E</td>
-                    <td>Especificos</td>
-                </tr>
-                <tr class="table-primary">
-                    <td>ES</td>
-                    <td>Especialidades</td>
-                </tr>
+        <div class="card" style="margin-top:25px">
+            <table class="table table-bordered" style="width: 25%;">
+                <thead>
+                    <tr>
+                        <th>Leyenda</th>
+                    </tr>
+                </thead>
+                <tbody>            
+                    <tr class="table-info">
+                        <td>G</td>
+                        <td>Generales</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td>E</td>
+                        <td>Especificos</td>
+                    </tr>
+                    <tr class="table-primary">
+                        <td>ES</td>
+                        <td>Especialidades</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
