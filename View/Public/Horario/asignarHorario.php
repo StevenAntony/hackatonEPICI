@@ -49,9 +49,7 @@ include_once('../Layout/master.php');
       <div class="col-md-2">
         <div class="form-group">
           <span class="small">Ambiente</span>
-          <select class="form-control">
-            <option>Laboratorio 01</option>
-            <option>Aula 10</option>
+          <select class="form-control" id="ambientes">
           </select>
         </div>
       </div>

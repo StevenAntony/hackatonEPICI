@@ -69,7 +69,7 @@ $(document).ready(function () {
   }
 
   // console.log(explode('1,2,3'));
-
+  cargarAmbiente();
 });
 
 function mostrarCursos(){
@@ -81,6 +81,17 @@ function mostrarCursos(){
     data:parametros,
     success:function(data){
       $("#cursos").html(data);
+    }
+  });
+}
+
+function cargarAmbiente(){
+  $.ajax({
+    type:"POST",
+    url:"../../../Controller/AsignarCurso/obtenerAmbiente.php",
+    data:"",
+    success:function(data){
+      $("#ambientes").html(data);
     }
   });
 }
