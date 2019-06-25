@@ -25,6 +25,11 @@
       <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
           <div class="row w-100">
+            <div style="width: 100%;">
+              <div class="col-lg-3 mx-auto">
+                  <img style="height: 100%;width: 100%;" src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/Img/LOGO.png">
+              </div>
+            </div>
             <div class="col-lg-4 mx-auto">
               <div class="box-body">
                 <div class="alert alert-danger alert-dismissible">
