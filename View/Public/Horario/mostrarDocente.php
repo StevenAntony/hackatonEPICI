@@ -5,10 +5,6 @@ include_once('../Layout/master.php');
 <div class="card">
   <div class="card-body">
     <h4 class="card-title">Horario Semenestre 2019-I</h4>
-    <!-- <p class="card-description">
-      Add class
-      <code>.table-striped</code>
-    </p> -->
     <div class="table-responsive">
       <table class="table table-bordered">
         <thead style="text-align: center;">

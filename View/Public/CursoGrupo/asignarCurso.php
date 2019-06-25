@@ -24,7 +24,7 @@ include_once('../Layout/master.php');
           <span class="small">Buscar Docente</span>
           <div class="input-group">
             <input type="text" class="form-control" placeholder="DNI" aria-label="Username" aria-describedby="colored-addon3">
-            <div class="input-group-append bg-primary border-primary" style="cursor: pointer">
+            <div class="input-group-append bg-primary border-primary" style="cursor: pointer" id="buscarDocente">
               <span class="input-group-text bg-transparent">
                 <i class="fa fa-search text-white"></i>
               </span>
@@ -33,7 +33,7 @@ include_once('../Layout/master.php');
         </div>
       </div>
       <div class="col-md-6">
-
+        Docente: <span class="dDocente" key=""></span>
       </div>
     </div>
     <hr>
@@ -118,7 +118,8 @@ include_once('../Layout/master.php');
       </div>
     </div>
   </div>
-
-<?php
+  <?php
   include_once('../Layout/footer.php');
-?>
+  ?>
+
+  <script src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/js/asignarCurso.js"></script>
