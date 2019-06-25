@@ -40,12 +40,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="py-1"><?php ?></td>
-                            <td class="py-1"></td>
-                            <td class="py-1"></td>
-                            <td class="py-1"></td>
-                        </tr>
+                    
                     </tbody>
                 </table>
             </div>

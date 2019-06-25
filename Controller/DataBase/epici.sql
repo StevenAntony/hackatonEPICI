@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2019 a las 21:57:19
+-- Tiempo de generación: 25-06-2019 a las 22:20:49
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -243,6 +243,7 @@ CREATE TABLE `horario` (
   `IdHorario` int(11) NOT NULL,
   `Dia` int(11) NOT NULL,
   `HoraTotal` int(11) NOT NULL,
+  `TipoC` varchar(10) NOT NULL,
   `Estado` int(2) DEFAULT NULL,
   `IdHora` varchar(11) NOT NULL,
   `IdAmb` int(11) NOT NULL,
