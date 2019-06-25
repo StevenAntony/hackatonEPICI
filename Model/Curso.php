@@ -4,7 +4,7 @@
 
     class Curso {
         public static function listarcursoxciclo($ciclo) {
-            $consulta = "SELECT C.CodigoCurso, C.DescripcionCurso, C.CreditoCurso, C.TipoCur 
+            $consulta = "SELECT C.CodigoCurso, C.DescripcionCurso, C.CreditoCurso, C.TipoCur, C.HoraP, C.HoraT  
                 from Curso C INNER JOIN Ciclo Ci on C.IdCiclo = Ci.IdCiclo where 
                 Ci.DescripcionCiclo = '".$ciclo."'";
 
