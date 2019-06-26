@@ -20,6 +20,7 @@ $(document).ready(function () {
           $('.dDocente').html('');
           $('.dDocente').attr('key', '');
         }
+        $('#tablaHA').html('');
       }
     });
 
@@ -228,11 +229,15 @@ function cargarAmbiente(){
   });
 }
 
+$('#guardarHorario').click(function () {
+  guardarHorario();
+});
+
 function guardarHorario(){
   // var idCurGrup = $("#cursos").attr("keyGroup");
   // var idAmb = $("#ambientes").val();
   // //idHora
-  // var idHora;
+  var idHora;
   // var tipoC = $("#tipoCurso").val();
   // //horatotal
   // var horaTotal;
@@ -245,17 +250,19 @@ function guardarHorario(){
   //dia que se dara
   // var dia;
   var totalH = $('#cursos option:selected').attr($('#tipoCurso').val());
+  var idCurGrup = $('#cursos option:selected').attr('keygroup');
   for (var i = 0; i < parseInt(totalH); i++) {
 
-
   }
+  var idAmb = $('#ambientes').val();
   var parametros = { "dia": diaC,"horaTotal":30,"tipoC":tipoC,"estado":1,"idHora":idHora,"idAmb":idAmb,"idCurGrup":idCurGrup}
-  $.ajax({
-    type:"POST",
-    url:"../../../Controller/Horario/registrarHorario.php",
-    data:parametros,
-    success:function(data){
-      $("#ambientes").html(data);
-    }
-  });
+  console.log(parametros)
+  // $.ajax({
+  //   type:"POST",
+  //   url:"../../../Controller/Horario/registrarHorario.php",
+  //   data:parametros,
+  //   success:function(data){
+  //     $("#ambientes").html(data);
+  //   }
+  // });
 }

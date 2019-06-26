@@ -146,7 +146,7 @@ include_once('../Layout/master.php');
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-primary" id="guardarHorario" >Guardar</button>
       </div>
     </div>
   </div>
