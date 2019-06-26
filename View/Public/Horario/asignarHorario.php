@@ -100,7 +100,8 @@ include_once('../Layout/master.php');
     <hr>
     <div class="row">
       <div class="col-md-2">
-        <button type="button" class="btn btn-primary btn-fw">Guardar Horario</button>
+        <!-- <button type="button" class="btn btn-primary btn-fw">Guardar Horario</button> -->
+
       </div>
     </div>
   </div>
@@ -118,6 +119,30 @@ include_once('../Layout/master.php');
         </button>
       </div>
       <div class="modal-body">
+        Curso : <span class="cursoHorarioAsignar"></span>
+        <!-- <div class="col-md-4"> -->
+        <hr>
+        <div class="row">
+          <div class="col-md-4">
+            Tipo
+            <div class="form-group">
+              <!-- <span class="small">Tipo</span> -->
+              <select class="form-control" id="tipoCurso">
+                <option value="horateoria">Teoria</option>
+                <option value="horapractica">Practica</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            Horario
+            <div class="form-group">
+              <span class="diaHorario"></span>
+              <!-- <span class="small">Tipo</span> -->
+              <!-- <input type="number" class="form-control" id="cantidad"  aria-label="Username" aria-describedby="colored-addon3"> -->
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -126,6 +151,30 @@ include_once('../Layout/master.php');
     </div>
   </div>
 </div>
+
+<div class="card" style="margin-top:-42px">
+            <table class="table table-bordered" style="width: 25%; margin-left: 30px;">
+              <thead>
+                <tr>
+                  <th>Leyenda</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-info">
+                    <td><span style="content:'';width:3px; height:3px; border:solid; color:red" ></span></td>
+                    <td>No disponible por Laboratorio</td>
+                </tr>
+                <tr class="table-info">
+                    <td><span style="content:'';width:3px; height:3px; border:solid; color:orange"></span></td>
+                    <td>No disponible por horario del Docente</td>
+                </tr>
+                <tr class="table-info">
+                    <td><span style="content:'';width:3px; height:3px; border:solid; color:green"></span></td>
+                    <td>Disponible</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
 
 <?php
 include_once('../Layout/footer.php');
