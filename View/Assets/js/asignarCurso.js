@@ -46,7 +46,7 @@ $(document).ready(function () {
         var htmlAux = '';
         var ban = 0;
         var ban2 = 0;
-        var hora = ['7:30', '8:20', '9:10', '10:00', '10:50', '11:40', '12:30', '13:20', '14:10', '15:00', '16:40', '17:30', '18:20', '19:10', '20:00', '7:30'];
+        var hora = ['7:30', '8:20', '9:10', '10:00', '10:50', '11:40', '12:30', '13:20', '14:10', '15:00', '16:40', '17:30', '18:20', '19:10', '20:00', '20:50'];
         for (var i = 1; i < 16; i++) {
           html = html + '<tr><td class="py-1">' + hora[i - 1] + '</td>'
           for (var k = 1; k < 6; k++) {
@@ -77,7 +77,7 @@ $(document).ready(function () {
 
                               if (pos != -1) {
                                 htmlAux = '';
-                                htmlAux = '<td class="' + k + '' + i +'" data-toggle="modal" data-target="#exampleModalLong" style=" background: #13d469;cursor:pointer"></td>';
+                                htmlAux = '<td class="itemHD" dia="'+k+'" hora="'+i+'" data-toggle="modal" data-target="#exampleModalLong" style=" background: #13d469;cursor:pointer"></td>';
                                 ban2 = 1;
                               } else {
                                 htmlAux = '';
@@ -105,7 +105,7 @@ $(document).ready(function () {
 
                             if (pos != -1) {
                               htmlAux = '';
-                              htmlAux = '<td style=" background: #13d469;" data-toggle="modal" data-target="#exampleModalLong"></td>';
+                              htmlAux = '<td class="itemHD" dia="' + k + '" hora="' + i +'" style=" background: #13d469;" data-toggle="modal" data-target="#exampleModalLong"></td>';
                               ban2 = 1;
                             } else {
                               htmlAux = '';
@@ -128,21 +128,23 @@ $(document).ready(function () {
               // htmlAux = '<td style=" background: #13d469;"></td>';
               if (response['disponible'].length > 0) {
                 for (var l = 0; l < response['disponible'].length; l++) {
+                  if (ban2 == 0) {
+                    if (k == response['disponible'][l]['DiaHD']) {
+                      var horasHD = explode(response['disponible'][l]['IdHora']);
+                      var pos = horasHD.indexOf(i + "")
 
-                  if (k == response['disponible'][l]['DiaHD']) {
-                    var horasHD = explode(response['disponible'][l]['IdHora']);
-                    var pos = horasHD.indexOf(i + "")
-
-                    if (pos != -1) {
-                      htmlAux = '';
-                      htmlAux = '<td style=" background: #13d469; data-toggle="modal" data-target="#exampleModalLong""></td>';
+                      if (pos != -1) {
+                        htmlAux = '';
+                        htmlAux = '<td class="itemHD" dia="' + k + '" hora="' + i +'" style=" background: #13d469;" data-toggle="modal" data-target="#exampleModalLong"></td>';
+                        ban2 = 1;
+                      } else {
+                        htmlAux = '';
+                        htmlAux = '<td style=" background: #d4b622"></td>';
+                      }
                     } else {
                       htmlAux = '';
                       htmlAux = '<td style=" background: #d4b622"></td>';
                     }
-                  } else {
-                    htmlAux = '';
-                    htmlAux = '<td style=" background: #d4b622"></td>';
                   }
                 }
               } else {
@@ -157,9 +159,12 @@ $(document).ready(function () {
         }
 
         $('#tablaHA').html(html);
+        modalParametros();
       }
     });
   });
+
+  // $("#servicio option:selected")
 
 
   function explode(data) {
@@ -175,6 +180,28 @@ $(document).ready(function () {
 
   // console.log(explode('1,2,3'));
   cargarAmbiente();
+});
+var diaC = 0;
+var HoraC = 0;
+var dias = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes']
+var horaAux = ['7:30', '8:20', '9:10', '10:00', '10:50', '11:40', '12:30', '13:20', '14:10', '15:00', '16:40', '17:30', '18:20', '19:10', '20:00', '20:50'];
+function modalParametros() {
+  $('.itemHD').each(function () {
+    var e = $(this);
+    e.click(function () {
+      diaC = e.attr('dia');
+
+      HoraC = e.attr('hora');
+      $('.cursoHorarioAsignar').html($("#cursos option:selected").text());
+      var totalH = $('#cursos option:selected').attr($('#tipoCurso').val());
+      $('.diaHorario').html(dias[parseInt(diaC) - 1] + ' , ' + horaAux[parseInt(HoraC) - 1] + ' - ' + horaAux[parseInt(HoraC) + parseInt(totalH) - 1]);
+    });
+  });
+}
+
+$('#tipoCurso').click(function () {
+  var totalH = $('#cursos option:selected').attr($('#tipoCurso').val());
+  $('.diaHorario').html(dias[parseInt(diaC) - 1] + ' , ' + horaAux[parseInt(HoraC) - 1] + ' - ' + horaAux[parseInt(HoraC) + parseInt(totalH) - 1]);
 });
 
 function mostrarCursos(){
@@ -202,16 +229,27 @@ function cargarAmbiente(){
 }
 
 function guardarHorario(){
-  var idCurGrup = $("#cursos").attr("keyGroup");
-  var idAmb = $("#ambientes").val();
-  //idHora
-  var idHora;
-  var tipoC = $("#tipoCurso").val();
-  //horatotal
-  var horaTotal;
+  // var idCurGrup = $("#cursos").attr("keyGroup");
+  // var idAmb = $("#ambientes").val();
+  // //idHora
+  // var idHora;
+  // var tipoC = $("#tipoCurso").val();
+  // //horatotal
+  // var horaTotal;
+  var tipoC = '';
+  if ($('#tipoCurso').val() == 'horateoria') {
+    tipoC = 'T';
+  }else{
+    tipoC = 'P'
+  }
   //dia que se dara
-  var dia;
-  var parametros={"dia":dia,"horaTotal":horaTotal,"tipoC":tipoC,"estado":1,"idHora":idHora,"idAmb":idAmb,"idCurGrup":idCurGrup}
+  // var dia;
+  var totalH = $('#cursos option:selected').attr($('#tipoCurso').val());
+  for (var i = 0; i < parseInt(totalH); i++) {
+
+
+  }
+  var parametros = { "dia": diaC,"horaTotal":30,"tipoC":tipoC,"estado":1,"idHora":idHora,"idAmb":idAmb,"idCurGrup":idCurGrup}
   $.ajax({
     type:"POST",
     url:"../../../Controller/Horario/registrarHorario.php",
@@ -219,5 +257,5 @@ function guardarHorario(){
     success:function(data){
       $("#ambientes").html(data);
     }
-  }); 
+  });
 }
