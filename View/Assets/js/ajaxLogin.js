@@ -21,6 +21,10 @@ $("#ingresar").click(function(){
     comprobarDatos(mensajeError);
 });
 
+$("#salir").click(function(){
+    salirDatos();
+});
+
 function comprobarDatos(mensajeError){
     var usuario = $("#usuario").val();
     var clave = $("#clave").val();
@@ -38,6 +42,17 @@ function comprobarDatos(mensajeError){
             }else{
                 redirigir_pagina("index.php","",false);
             }
+        }
+    });
+}
+
+function salirDatos(){
+    $.ajax({
+        type:"POST",
+        url:"../../Controller/salirLogin.php",
+        data:"",
+        success:function(data){
+            redirigir_pagina("login.php","",false);
         }
     });
 }

@@ -25,7 +25,7 @@
         </a>
       </div>
       <div class="salir">
-        <button class="btn btn-primary btn-border">Salir</button>
+        <button class="btn btn-primary btn-border" id="salir">Salir</button>
       </div>
     </nav>
     <!-- partial -->
