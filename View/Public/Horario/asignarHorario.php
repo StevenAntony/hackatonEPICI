@@ -153,7 +153,7 @@ include_once('../Layout/master.php');
 </div>
 
 <div class="card" style="margin-top:25px">
-            <table class="table table-bordered" style="width: 25%;">
+            <table class="table table-bordered" style="width: -42%;">
               <thead>
                 <tr>
                   <th>Leyenda</th>
