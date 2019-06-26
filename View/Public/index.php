@@ -1,10 +1,10 @@
 <?php
     include("../../Controller/validarSesion.php");
-    include("Layout/footer.php");
+    include("Layout/master.php");
 ?>
 
 
 
 <?php
-    include("Layout/master.php");
+    include("Layout/footer.php");
 ?>

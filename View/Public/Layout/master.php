@@ -216,7 +216,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../index.php">
+            <a class="nav-link" href="http://localhost:2000/EPICI2019/hackatonEPICI/View/Public/index.php">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Inicio</span>
             </a>
