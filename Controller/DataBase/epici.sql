@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2019 a las 22:20:49
+-- Tiempo de generación: 26-06-2019 a las 02:03:31
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -92,6 +92,14 @@ CREATE TABLE `curgrup` (
   `IdDoc` int(11) NOT NULL,
   `IdSem` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `curgrup`
+--
+
+INSERT INTO `curgrup` (`IdCurGrup`, `Estado`, `IdCurso`, `IdGrupo`, `IdDoc`, `IdSem`) VALUES
+(1, NULL, 1, 1, 1, 2),
+(2, NULL, 9, 1, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -442,7 +450,7 @@ ALTER TABLE `ciclo`
 -- AUTO_INCREMENT de la tabla `curgrup`
 --
 ALTER TABLE `curgrup`
-  MODIFY `IdCurGrup` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdCurGrup` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `curso`

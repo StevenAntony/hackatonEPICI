@@ -152,6 +152,30 @@ include_once('../Layout/master.php');
   </div>
 </div>
 
+<div class="card" style="margin-top:25px">
+            <table class="table table-bordered" style="width: 25%;">
+              <thead>
+                <tr>
+                  <th>Leyenda</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-info">
+                    <td><span style="content:'';width:3px; height:3px; border:solid; color:red" ></span></td>
+                    <td>No disponible por Laboratorio</td>
+                </tr>
+                <tr class="table-info">
+                    <td><span style="content:'';width:3px; height:3px; border:solid; color:orange"></span></td>
+                    <td>No disponible por horario del Docente</td>
+                </tr>
+                <tr class="table-info">
+                    <td><span style="content:'';width:3px; height:3px; border:solid; color:green"></span></td>
+                    <td>Disponible</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+
 <?php
 include_once('../Layout/footer.php');
 ?>
