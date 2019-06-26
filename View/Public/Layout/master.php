@@ -24,6 +24,9 @@
           <img src="http://localhost:2000/EPICI2019/hackatonEPICI/View/Assets/img/epici.png" alt="logo" />
         </a>
       </div>
+      <div class="salir">
+        <button class="btn btn-primary btn-border">Salir</button>
+      </div>
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
