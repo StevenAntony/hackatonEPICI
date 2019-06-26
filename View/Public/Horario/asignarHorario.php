@@ -100,7 +100,8 @@ include_once('../Layout/master.php');
     <hr>
     <div class="row">
       <div class="col-md-2">
-        <button type="button" class="btn btn-primary btn-fw">Guardar Horario</button>
+        <!-- <button type="button" class="btn btn-primary btn-fw">Guardar Horario</button> -->
+
       </div>
     </div>
   </div>
@@ -118,6 +119,30 @@ include_once('../Layout/master.php');
         </button>
       </div>
       <div class="modal-body">
+        Curso : <span class="cursoHorarioAsignar"></span>
+        <!-- <div class="col-md-4"> -->
+        <hr>
+        <div class="row">
+          <div class="col-md-4">
+            Tipo
+            <div class="form-group">
+              <!-- <span class="small">Tipo</span> -->
+              <select class="form-control" id="tipoCurso">
+                <option value="horateoria">Teoria</option>
+                <option value="horapractica">Practica</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            Horario
+            <div class="form-group">
+              <span class="diaHorario"></span>
+              <!-- <span class="small">Tipo</span> -->
+              <!-- <input type="number" class="form-control" id="cantidad"  aria-label="Username" aria-describedby="colored-addon3"> -->
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
